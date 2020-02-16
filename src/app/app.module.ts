@@ -2,6 +2,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 // NgModule the class decorator to define class as Angular Module
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+
+
 // Custom Module for containing Routing Object Model
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +25,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,FormsModule,
     AppRoutingModule
   ],
   providers: [],
