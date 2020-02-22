@@ -39,3 +39,26 @@ Interpolation aka expression aka READ-ONLY ONE TIME BINDING
 3. Attribute Directive
    - Applied as DOM Element attributes for setting its behavior
    - ngModel
+
+# ==========================================================================================
+
+1. Angular Forms
+   1. Template Forms aka Standard HTML Forms with ngModel Databinding
+      1. <form></form> and ngModel for TwoWay binding
+   2. ReactiveForms aka Data-Driven-Forms aka Model-Forms
+      1. Tightly Couples the Model class with the HTML template
+         1. The FormGroup, the FormControlCollection
+         2. FormControlConollection conatins FormControl and its maps with the public property from the Model class
+         3. <fromGroup-instance> = new FormGroup({<Key>: new FormControl(<Model-Property>, <Validatros>)});
+            1. The '<key>' is bound to editable-elements in HTML form using 'formControlName' property
+               1. <input type="text" formControlName="<key>">
+               2.  when formControlName changes the Model-Property bound to it will be changed
+               3.  Suggestions aka recommendations
+                   1.  <key> name should be ssame as Model Property name
+               4.  The formControlName uses 'value' property to update the Model property
+        1.  The FormControl class is derived from AbstractControl class
+            1.  AbstractCOntrol represents an UI element on HTML Page
+   
+2. Services
+3. Routing
+4. Directives

@@ -2,12 +2,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 // NgModule the class decorator to define class as Angular Module
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 // Custom Module for containing Routing Object Model
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {CategoryReactiveFormComponent} from './components/categoryreactiveformcomponent/app.categoryreactiveform.component';
 
 // imports: of the type array, used to import and load standard Angular Modules
 // and external modules in current application
@@ -22,13 +23,13 @@ import { AppComponent } from './app.component';
 // entryComponent: Components not bootstraped but used by bootstraped components to load
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, CategoryReactiveFormComponent
   ],
   imports: [
-    BrowserModule,FormsModule,
+    BrowserModule,FormsModule, ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ CategoryReactiveFormComponent]
 })
 export class AppModule { }
