@@ -58,6 +58,24 @@ Interpolation aka expression aka READ-ONLY ONE TIME BINDING
                4.  The formControlName uses 'value' property to update the Model property
         1.  The FormControl class is derived from AbstractControl class
             1.  AbstractCOntrol represents an UI element on HTML Page
+    1.  Valiadation Methods
+        1.  Using Validators class
+            1.  Static methods for Data Validations on Model Properties mapped/linked with FormControl
+                1.  Static method in Validators class
+                    1.  required(AbstractControl) / requiredTrue(AbstractControl)
+                    2. minLength(number) / maxLength(number)
+                    3. pattern(RegEx as string)
+                 1. If a method accepts an AbstractControl, then call method as callback e.g. Validators.required
+                 2. Each method will return 'null' if value is valid else return invalid values as 'required', 'pattern', 'minlength', 'maxlength'
+          1. <formGroup>.controls.<formControlName>.dirty
+             1. The element is changed
+          2. !<formGroup>.controls.<formControlName>.valid
+             1. Element is invalid data
+          3. <formGroup>.controls.<formControlName>.errors.<error-return-type>
+             1. 'required', 'pattern', 'minlength', 'maxlength'
+          4. To apply validation rule use
+             1. Validators.compose([array of validation rules])
+
    
 2. Services
 3. Routing

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../models/app.category.model';
 import { CategoryLogic } from '../../models/app.category.logic';
-
+import { CustomValidator } from './app.custom.validator';
 // imporing FormGroup and the FormControl for implementing
 // the reactive form
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -29,7 +29,10 @@ export class CategoryReactiveFormComponent implements OnInit {
     // instantiate the frmCategory and map properties of category class using
     // FormControl into the group
     this.frmCategory  =new FormGroup({
-      CategoryRowId : new FormControl(this.category.CategoryRowId),
+      CategoryRowId : new FormControl(this.category.CategoryRowId,
+          Validators.compose([Validators.required, Validators.minLength(2),
+            Validators.maxLength(6), Validators.pattern('[0-9]+'),
+           CustomValidator.checkEven ])),
       CategoryId : new FormControl(this.category.CategoryId),
       CategoryName : new FormControl(this.category.CategoryName),
       BasePrice : new FormControl(this.category.BasePrice)
