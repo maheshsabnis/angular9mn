@@ -78,5 +78,32 @@ Interpolation aka expression aka READ-ONLY ONE TIME BINDING
 
    
 2. Services
+   1. Utilities for containing heavy-load logic that can be shared across components
+      1. E.g.
+         1. Http Calls
+            1. @angular/common/http
+               1. HttpClientModule class --> Platform for Http Calls
+                  1. HttpClient class
+                     1. get<T>()/post<T>()/put<T>()/delete<T>() methods
+                        1. T is the response expected from Http Calls
+                     2. All these methods returns Observable<T>
+                        1. Observable, is a store that contains response from Http and the data from Observable is streamed to component
+                     3. get()/post()/put()/delete()
+                        1. first input paramter as the URL
+                        2. post()/put()
+                           1. accept body parameter as JSON
+                        3. third parameter is 'options?' optional
+                           1. options = { headers: new HttpHeaders()}
+                           2. HttpHeaders
+                              1. Content-Type as application/json for post and put request
+                              2. Authorization for secure calls
+                                 1. Authorization: 'basic username:password'
+                                 2. Authorizaton: 'bearer <TOKEN>' 
+         1. Heavy Data operations e.g. conditional sort, reverse, filter arrays /  collections
+   2.  Service class is decorated with @Injectable() decorator
+       1.  @Injectable({providedIn: 'root' })
+           1.  root:-> bu default regisreted in AppModule or root of tyhe current angular application
+       2.  Register Service in 'provoiders:[]' array of @NgModule
+      2. Use services to comunicate across components
 3. Routing
 4. Directives

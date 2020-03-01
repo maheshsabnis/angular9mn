@@ -9,6 +9,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {CategoryReactiveFormComponent} from './components/categoryreactiveformcomponent/app.categoryreactiveform.component';
+import { SharedModule } from './sharedmodule/app.shared.module';
+import { HttpServiceComponent } from './components/httpservicecompoinent/app.httpservice.component';
 
 // imports: of the type array, used to import and load standard Angular Modules
 // and external modules in current application
@@ -23,13 +25,13 @@ import {CategoryReactiveFormComponent} from './components/categoryreactiveformco
 // entryComponent: Components not bootstraped but used by bootstraped components to load
 @NgModule({
   declarations: [
-    AppComponent, CategoryReactiveFormComponent
+    AppComponent, CategoryReactiveFormComponent, HttpServiceComponent
   ],
   imports: [
     BrowserModule,FormsModule, ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule, SharedModule
   ],
   providers: [],
-  bootstrap: [ CategoryReactiveFormComponent]
+  bootstrap: [ HttpServiceComponent]
 })
 export class AppModule { }
