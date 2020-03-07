@@ -11,7 +11,8 @@ import { AppComponent } from './app.component';
 import {CategoryReactiveFormComponent} from './components/categoryreactiveformcomponent/app.categoryreactiveform.component';
 import { SharedModule } from './sharedmodule/app.shared.module';
 import { HttpServiceComponent } from './components/httpservicecompoinent/app.httpservice.component';
-
+import {CatMasterComponent} from './components/masterdetails/app.catmaster.component';
+import { PrdChildComponent } from './components/masterdetails/app.prdchild.component';
 // imports: of the type array, used to import and load standard Angular Modules
 // and external modules in current application
 // declarations: of the type array, used to declare instances of all components,
@@ -25,13 +26,14 @@ import { HttpServiceComponent } from './components/httpservicecompoinent/app.htt
 // entryComponent: Components not bootstraped but used by bootstraped components to load
 @NgModule({
   declarations: [
-    AppComponent, CategoryReactiveFormComponent, HttpServiceComponent
+    AppComponent, CategoryReactiveFormComponent, HttpServiceComponent,
+    CatMasterComponent, PrdChildComponent
   ],
   imports: [
     BrowserModule,FormsModule, ReactiveFormsModule,
     AppRoutingModule, SharedModule
   ],
   providers: [],
-  bootstrap: [ HttpServiceComponent]
+  bootstrap: [ CatMasterComponent]
 })
 export class AppModule { }

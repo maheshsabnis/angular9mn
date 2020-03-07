@@ -43,6 +43,7 @@ Interpolation aka expression aka READ-ONLY ONE TIME BINDING
 # ==========================================================================================
 
 1. Angular Forms
+
    1. Template Forms aka Standard HTML Forms with ngModel Databinding
       1. <form></form> and ngModel for TwoWay binding
    2. ReactiveForms aka Data-Driven-Forms aka Model-Forms
@@ -52,31 +53,30 @@ Interpolation aka expression aka READ-ONLY ONE TIME BINDING
          3. <fromGroup-instance> = new FormGroup({<Key>: new FormControl(<Model-Property>, <Validatros>)});
             1. The '<key>' is bound to editable-elements in HTML form using 'formControlName' property
                1. <input type="text" formControlName="<key>">
-               2.  when formControlName changes the Model-Property bound to it will be changed
-               3.  Suggestions aka recommendations
-                   1.  <key> name should be ssame as Model Property name
-               4.  The formControlName uses 'value' property to update the Model property
-        1.  The FormControl class is derived from AbstractControl class
-            1.  AbstractCOntrol represents an UI element on HTML Page
-    1.  Valiadation Methods
-        1.  Using Validators class
-            1.  Static methods for Data Validations on Model Properties mapped/linked with FormControl
-                1.  Static method in Validators class
-                    1.  required(AbstractControl) / requiredTrue(AbstractControl)
-                    2. minLength(number) / maxLength(number)
-                    3. pattern(RegEx as string)
-                 1. If a method accepts an AbstractControl, then call method as callback e.g. Validators.required
-                 2. Each method will return 'null' if value is valid else return invalid values as 'required', 'pattern', 'minlength', 'maxlength'
-          1. <formGroup>.controls.<formControlName>.dirty
-             1. The element is changed
-          2. !<formGroup>.controls.<formControlName>.valid
-             1. Element is invalid data
-          3. <formGroup>.controls.<formControlName>.errors.<error-return-type>
-             1. 'required', 'pattern', 'minlength', 'maxlength'
-          4. To apply validation rule use
-             1. Validators.compose([array of validation rules])
+               2. when formControlName changes the Model-Property bound to it will be changed
+               3. Suggestions aka recommendations
+                  1. <key> name should be ssame as Model Property name
+               4. The formControlName uses 'value' property to update the Model property
+      1. The FormControl class is derived from AbstractControl class
+         1. AbstractCOntrol represents an UI element on HTML Page
+   3. Valiadation Methods
+      1. Using Validators class
+         1. Static methods for Data Validations on Model Properties mapped/linked with FormControl
+            1. Static method in Validators class
+               1. required(AbstractControl) / requiredTrue(AbstractControl)
+               2. minLength(number) / maxLength(number)
+               3. pattern(RegEx as string)
+            1. If a method accepts an AbstractControl, then call method as callback e.g. Validators.required
+            1. Each method will return 'null' if value is valid else return invalid values as 'required', 'pattern', 'minlength', 'maxlength'
+      1. <formGroup>.controls.<formControlName>.dirty
+         1. The element is changed
+      1. !<formGroup>.controls.<formControlName>.valid
+         1. Element is invalid data
+      1. <formGroup>.controls.<formControlName>.errors.<error-return-type>
+         1. 'required', 'pattern', 'minlength', 'maxlength'
+      1. To apply validation rule use
+         1. Validators.compose([array of validation rules])
 
-   
 2. Services
    1. Utilities for containing heavy-load logic that can be shared across components
       1. E.g.
@@ -98,12 +98,19 @@ Interpolation aka expression aka READ-ONLY ONE TIME BINDING
                               1. Content-Type as application/json for post and put request
                               2. Authorization for secure calls
                                  1. Authorization: 'basic username:password'
-                                 2. Authorizaton: 'bearer <TOKEN>' 
-         1. Heavy Data operations e.g. conditional sort, reverse, filter arrays /  collections
-   2.  Service class is decorated with @Injectable() decorator
-       1.  @Injectable({providedIn: 'root' })
-           1.  root:-> bu default regisreted in AppModule or root of tyhe current angular application
-       2.  Register Service in 'provoiders:[]' array of @NgModule
-      2. Use services to comunicate across components
-3. Routing
-4. Directives
+                                 2. Authorizaton: 'bearer <TOKEN>'
+         1. Heavy Data operations e.g. conditional sort, reverse, filter arrays / collections
+   2. Service class is decorated with @Injectable() decorator
+      1. @Injectable({providedIn: 'root' })
+         1. root:-> bu default regisreted in AppModule or root of tyhe current angular application
+      2. Register Service in 'provoiders:[]' array of @NgModule
+   3. Use services to comunicate across components
+3. Component Communications
+   1. Component has parent child relationship
+      1. Child component can have public get/set property decorated with @Input() decorator
+         1. @Input is imported from @angular/core
+      2. The @Input decorated property can be used for property binding [<PROPERTYT-NAME>]
+      3. Child component can emit data to parent using EventEmitter<T> object from @angular/core. Here T is the Payload aka parameter type to be emitted to parent component
+      4. The EventEmitter declaration must be decorated @Output() decorator, the EventEmitter can be used by parent for Event Binding (<EventEmittertype>)
+4. Routing
+5. Directives
