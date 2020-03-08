@@ -13,6 +13,10 @@ import { SharedModule } from './sharedmodule/app.shared.module';
 import { HttpServiceComponent } from './components/httpservicecompoinent/app.httpservice.component';
 import {CatMasterComponent} from './components/masterdetails/app.catmaster.component';
 import { PrdChildComponent } from './components/masterdetails/app.prdchild.component';
+import { CatSenderComponent } from './components/masterdetailsservices/app.catsender.component';
+import { PrdReceiverComponent } from './components/masterdetailsservices/app.prdreceiver.component';
+import { ColorDirective } from './directives/app.color.directive';
+
 // imports: of the type array, used to import and load standard Angular Modules
 // and external modules in current application
 // declarations: of the type array, used to declare instances of all components,
@@ -27,13 +31,14 @@ import { PrdChildComponent } from './components/masterdetails/app.prdchild.compo
 @NgModule({
   declarations: [
     AppComponent, CategoryReactiveFormComponent, HttpServiceComponent,
-    CatMasterComponent, PrdChildComponent
+    CatMasterComponent, PrdChildComponent, CatSenderComponent,
+    PrdReceiverComponent, ColorDirective
   ],
   imports: [
     BrowserModule,FormsModule, ReactiveFormsModule,
     AppRoutingModule, SharedModule
   ],
   providers: [],
-  bootstrap: [ CatMasterComponent]
+  bootstrap: [ CatSenderComponent, PrdReceiverComponent]
 })
 export class AppModule { }

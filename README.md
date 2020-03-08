@@ -114,3 +114,23 @@ Interpolation aka expression aka READ-ONLY ONE TIME BINDING
       4. The EventEmitter declaration must be decorated @Output() decorator, the EventEmitter can be used by parent for Event Binding (<EventEmittertype>)
 4. Routing
 5. Directives
+   1. All directives have selector property
+   2. Reusable UI or attributes for managing UX of application
+   3. Each Component is directive
+   4. 3 Types of Directives
+      1. Component Directive
+      2. Structural Directive
+         1. *ngFor, *ngIf
+      3. Attribute Directives
+         1. ngModel
+         2. All attribute directives selector will be used for property binding
+            1. e.g. '[<SELECTRO-NAME>]'
+   5. Planning for Creation of Custom Directive
+      1. What is the Functionality of Directive? --> Plan for Logic
+      2. What will be UI for the directive? --> Plan for UI Elements
+      3. What data directive will accept from its container and will emit data to container --> paln for public properties and events
+   6. Creating Directive?
+      1. Class decorated with Directive
+      2. Use ElementRef class to target the HTML element on which directive will be applied
+      3. Use Renderer2 class to define or apply effects on the target HTML element
+      4. Use @HostListener decorator class on methods to define events to activate/deactivate directive
